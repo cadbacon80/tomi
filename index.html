@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tomi</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="playfield" aria-label="Tomi game">
+        <canvas id="game" width="960" height="640" aria-label="Game canvas"></canvas>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div id="overlay" class="overlay">
+          <h1>Tomi</h1>
+          <p>Chart drifting anomalies, chain echoes, and survive long enough to cash out your map.</p>
+          <button id="startButton" type="button">Start Run</button>
+        </div>
+        <div id="upgradeModal" class="upgradeModal hidden" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+          <div class="upgradeBox">
+            <p class="eyebrow">Next Mutation</p>
+            <h2 id="upgradeTitle">Choose Your Upgrade</h2>
+            <div id="upgradeChoices" class="choices"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="Run status and controls">
+        <div>
+          <p class="eyebrow">Run</p>
+          <h2 id="statusTitle">Ready</h2>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Score</dt><dd id="score">0</dd></div>
+          <div><dt>Best</dt><dd id="best">0</dd></div>
+          <div><dt>Wave</dt><dd id="wave">1</dd></div>
+          <div><dt>Hull</dt><dd id="hull">100</dd></div>
+          <div><dt>Chain</dt><dd id="chain">x1</dd></div>
+          <div><dt>Relics</dt><dd id="relics">0</dd></div>
+          <div><dt>Blaster</dt><dd id="blaster">Ready</dd></div>
+          <div><dt>Drift</dt><dd id="drift">0%</dd></div>
+        </dl>
+
+        <div class="crosshairPanel">
+          <p class="eyebrow">Crosshair</p>
+          <div class="crosshairChoices" aria-label="Crosshair style">
+            <button class="crosshairChoice active" type="button" data-crosshair="ring" aria-label="Ring crosshair"><span class="ringSight"></span></button>
+            <button class="crosshairChoice" type="button" data-crosshair="diamond" aria-label="Diamond crosshair"><span class="diamondSight"></span></button>
+            <button class="crosshairChoice" type="button" data-crosshair="dot" aria-label="Dot crosshair"><span class="dotSight"></span></button>
+          </div>
+        </div>
+
+        <div class="legend">
+          <p><span class="key">WASD</span><span class="key">Arrows</span> move</p>
+          <p><span class="key">Click</span> blaster</p>
+          <p><span class="key">Space</span> pulse</p>
+          <p><span class="key">Shift</span> drift charge</p>
+          <p><span class="key">R</span> restart</p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
